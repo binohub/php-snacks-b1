@@ -79,9 +79,9 @@
     <div class="snack">
 
         <?php
-            $getName = $_GET['name'];
-            $getMail = $_GET['mail'];
-            $getAge = $_GET['age'];
+        $getName = $_GET['name'];
+        $getMail = $_GET['mail'];
+        $getAge = $_GET['age'];
         ?>
 
         <h1>Snack 2:</h1>
@@ -108,25 +108,26 @@
                 ?>
             </h4>
         </div>
+
         <div class="accesso">
             <h4>
-                    <?php
+                <?php
 
-                        if (     (strlen($getName) > 3 )     ){
-                            if (     (is_numeric($getAge))     ){
-                                if (     (strpos($getMail, '@') > 3 ) && (strpos($getMail, '.') > 8)     ){
-                                    echo "Accesso consentito!";
-                                } else {
-                                    echo "Aaaccesso negato! riscontro errori nella mail";
-                                }
-                            } else {
-                                echo "Aaaccesso negato! assicurati di aver inserito la tua età";
-                            }
+                if ((strlen($getName) > 3)) {
+                    if ((is_numeric($getAge))) {
+                        if ((strpos($getMail, '@') > 3) && (strpos($getMail, '.') > 8)) {
+                            echo "Accesso consentito!";
                         } else {
-                            echo "Aaaccesso negato! assicurati che il nome contenga più di 3 caratteri";
+                            echo "Aaaccesso negato! riscontro errori nella mail";
                         }
-                    ?>
-                </h4>
+                    } else {
+                        echo "Aaaccesso negato! assicurati di aver inserito la tua età";
+                    }
+                } else {
+                    echo "Aaaccesso negato! assicurati che il nome contenga più di 3 caratteri";
+                }
+                ?>
+            </h4>
         </div>
 
     </div>
@@ -134,6 +135,28 @@
     <div class="snack">
         <h1>Snack 3:</h1>
         <p>Creare un array con 15 numeri casuali, tenendo conto che l'array non dovrà contenere lo stesso numero più di una volta </p>
+
+        <?php
+
+        $numbers = [];
+        $i = 0;
+        while ((count($numbers) < 15)) {
+            $extractedNumber = rand(1, 20);
+        ?>
+
+        <?php
+            if (!in_array($extractedNumber, $numbers)) {
+                $numbers[] = $extractedNumber;
+            }
+        ?>
+
+        <?php   
+        }
+        var_dump($numbers);
+        ?>
+
+
+
     </div>
 
 </body>
